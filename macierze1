@@ -1,5 +1,6 @@
 Faktyczną nazwą klasy dla tablicy Numpy jest ndarray co stanowi skrót od n-dimensional 
 array czyli tablicę n-wymiarową.
+
 Przykład 1.
 import numpy as np
 #inicjalizacja tablicy
@@ -36,25 +37,31 @@ print(type(m))
 import numpy as np
 #możemy w łatwy sposób stworzyć macierz danego rozmiaru 
 wypełnioną zerami lub jedynkami
+
 zera = np.zeros((5,5))
 jedynki = np.ones((4,4))
 print(zera)
 print(jedynki)
+
 #warto sprawdzić jaki jest domyślny typ danych takich tablic
 print(zera.dtype)
 print(jedynki.dtype)
+
 #można również stworzyć "pustą" macierz o podanych wymiarach, 
 która pusta wcale nie jest
+
 #wartości umieszczane są losowe, najpierw podawana jest ilość 
 wierszy tablicy, potem ilość kolumn
 pusta = np.empty((2,2))
 print(pusta)
+
 #do elementów tablicy możemy odwołać się tak jak do elementów 
 np. listy czyli podając indeksy
 poz_1 = pusta[1,1]
 poz_2 = pusta[0,1]
 print(poz_1)
 print(poz_2)
+
 #tworzenie macierzy 2x2 wraz z uzupełnieniem
 macierz = np.array([[1,2],[3,4]])
 print(macierz)
@@ -62,17 +69,21 @@ print(macierz)
 zmiennoprzecinkowych
 liczby = np.arange(1,2,0.1)
 print(liczby)
+
 #podobnie działa funkcja linspace, które działanie jest 
 równoważne tej samej funkcji w MATLAB-ie
 liczby_lin = np.linspace(1,2,5)
 print(liczby_lin)
+
 #a teraz możemy utworzyć dwie macierze, najpierw wartości 
 interowane są w kolumnie a następnie w wierszu
 z = np.indices((5,3))
 print(z)
+
 #podobnie jak w MATLAB-ie możemy tworzyć macierze diagonalne
 mat_diag = np.diag([a for a in range(5)])
 print(mat_diag)
+
 #w powyższym przykładzie stworzony wektor wartości zostanie 
 umieszczony na głównej przekątnej macierzy
 #możemy podać drugi parametr funkcji diag, który określa 
@@ -84,6 +95,7 @@ print(mat_diag_k)
 dowolnego obiektu iterowalnego (iterable)
 z = np.fromiter(range(5), dtype='int32')
 print(z)
+
 #ciekawą funkcją Numpy jest funkcja frombuffer, dzięki której 
 możemy stworzyć np. tablicę znaków
 # znaki = b'ogolna'
@@ -93,8 +105,10 @@ możemy stworzyć np. tablicę znaków
 # print(z2)
 #powyższa funkcja ma jednak pewną wadę dla pythona 3.x, która 
 powodóje, że trzeba jawnie określić
+
 #iż ciąg znaków przekazujemy jako ciąg bajtów co osiągamy po 
 przez podanie litery 'b' przed wartością
+
 #zmiennej tekstowej. Można podobne efekty osiągnąć inaczej
 znaki = 'ogolna'
 z3 = np.array(list(znaki))
@@ -105,6 +119,7 @@ print(z3)
 print(z4)
 print(z5)
 print(z6)
+
 #talice w Numpy możemy w prosty sposób do siebie dodawać, 
 odejmować, mnożyć, dzielić
 mat = np.ones((2,2))
@@ -120,6 +135,7 @@ Indeksowanie i cięcia tablic
 Cięcie i indeksowanie danych w tablicy Numpy jest możliwe do wykonania na bardzo wiele 
 sposobów. Poniżej przykłady niektórych z nich.
 import numpy as np
+
 #cięcie (slicing) tablicy numpy można wykonać za pomocą 
 wartości z funkcji slice lub range
 a = np.arange(10)
@@ -128,12 +144,14 @@ s = slice(2,7,2)
 print(a[s])
 s = range(2,7,2)
 print(a[s])
+
 #możemy ciąć tablice również w sposób znany z cięcia list 
 (efekt jak wyżej)
 print(a[2:7:2])
 #lub tak
 print(a[1:])
 print(a[2:5])
+
 #w podobny sposób postępujemy w przypadku tablic 
 wielowymiarowych
 mat = np.arange(25)
@@ -147,6 +165,7 @@ print(mat[:,-1]) #ostatnia kolumna
 print(mat[2:6, 1:3]) # 2 i 3 kolumna dla 3,4,5 wierszy
 print(mat[:, range(2,6,2)]) # 3 i 5 kolumna
 print('')
+
 #bardziej zaawansowane, lecz trudniejsze do zrozumienia cięcia 
 można osiągnąć wg. poniższego przykładu
 #y będzie tablicą zawierającą wierzchołki macierzy x
